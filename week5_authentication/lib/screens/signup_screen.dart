@@ -74,24 +74,44 @@ class _SignupScreenState extends State<SignupScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-    } on FirebaseAuthException catch (e) {
-      String message;
-
-      switch (e.code) {
-        case 'email-already-in-use':
-          message = 'This email is already registered.';
-          break;
-        case 'weak-password':
-          message = 'The password is too weak.';
-          break;
-        case 'invalid-email':
-          message = 'The email address is invalid.';
-          break;
-        default:
-          message = e.message ?? 'Registration failed.';
+      } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        // Handle specialized dialog for existing accounts (9.3)
+        if (!mounted) return;
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Account Exists'),
+            content: const Text(
+                'This email is already registered. Would you like to login?'),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Try Again')),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context); // Close dialog
+                  Navigator.pop(context); // Go back to Login screen
+                },
+                child: const Text('Go to Login'),
+              ),
+            ],
+          ),
+        );
+      } else {
+        String message;
+        switch (e.code) {
+          case 'weak-password':
+            message = 'The password is too weak.';
+            break;
+          case 'invalid-email':
+            message = 'The email address is invalid.';
+            break;
+          default:
+            message = e.message ?? 'Registration failed.';
+        }
+        _showMessage(message);
       }
-
-      _showMessage(message);
     } catch (_) {
       _showMessage('An unexpected error occurred.');
     } finally {

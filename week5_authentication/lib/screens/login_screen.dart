@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
           message = 'No user found with this email.';
           break;
         case 'wrong-password':
-          message = 'Incorrect password.';
+          message = 'Wrong password provided.';
           break;
         case 'invalid-email':
           message = 'Invalid email format.';
