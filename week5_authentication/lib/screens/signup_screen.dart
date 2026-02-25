@@ -74,7 +74,11 @@ class _SignupScreenState extends State<SignupScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      } on FirebaseAuthException catch (e) {
+      if (mounted) {
+        _showMessage('Account created successfully!');
+        Navigator.pop(context); // Go back to login screen
+      }
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         // Handle specialized dialog for existing accounts (9.3)
         if (!mounted) return;
@@ -108,12 +112,12 @@ class _SignupScreenState extends State<SignupScreen> {
             message = 'The email address is invalid.';
             break;
           default:
-            message = e.message ?? 'Registration failed.';
+            message = '${e.code}: ${e.message ?? 'Registration failed.'}';
         }
         _showMessage(message);
       }
-    } catch (_) {
-      _showMessage('An unexpected error occurred.');
+    } catch (e) {
+      _showMessage('An unexpected error occurred: $e');
     } finally {
       if (mounted) {
         setState(() => _isLoading = false);

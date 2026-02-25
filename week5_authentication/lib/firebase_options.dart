@@ -7,22 +7,34 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
         return ios;
+      case TargetPlatform.macOS:
+        return macOS;
+      case TargetPlatform.windows:
+        return windows;
+      case TargetPlatform.linux:
+        return linux;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
   }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'dummy-api-key',
+    appId: 'dummy-app-id',
+    messagingSenderId: 'dummy-sender-id',
+    projectId: 'dummy-project-id',
+    authDomain: 'dummy-auth-domain',
+    storageBucket: 'dummy-storage-bucket',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'dummy-api-key',
@@ -39,5 +51,30 @@ class DefaultFirebaseOptions {
     projectId: 'dummy-project-id',
     storageBucket: 'dummy-storage-bucket',
     iosBundleId: 'dummy-bundle-id',
+  );
+
+  static const FirebaseOptions macOS = FirebaseOptions(
+    apiKey: 'dummy-api-key',
+    appId: 'dummy-app-id',
+    messagingSenderId: 'dummy-sender-id',
+    projectId: 'dummy-project-id',
+    storageBucket: 'dummy-storage-bucket',
+    iosBundleId: 'dummy-bundle-id',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'dummy-api-key',
+    appId: 'dummy-app-id',
+    messagingSenderId: 'dummy-sender-id',
+    projectId: 'dummy-project-id',
+    storageBucket: 'dummy-storage-bucket',
+  );
+
+  static const FirebaseOptions linux = FirebaseOptions(
+    apiKey: 'dummy-api-key',
+    appId: 'dummy-app-id',
+    messagingSenderId: 'dummy-sender-id',
+    projectId: 'dummy-project-id',
+    storageBucket: 'dummy-storage-bucket',
   );
 }

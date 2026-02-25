@@ -75,12 +75,12 @@ class _LoginScreenState extends State<LoginScreen> {
           message = 'Invalid email format.';
           break;
         default:
-          message = e.message ?? 'Login failed.';
+          message = '${e.code}: ${e.message ?? 'Login failed.'}';
       }
 
       _showMessage(message);
     } catch (e) {
-      _showMessage('An unexpected error occurred.');
+      _showMessage('An unexpected error occurred: $e');
     } finally {
       if (mounted) {
         setState(() => _isLoading = false);

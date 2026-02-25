@@ -7,9 +7,19 @@ import 'screens/login_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    
+    // Check if we are using dummy values
+    if (DefaultFirebaseOptions.currentPlatform.apiKey == 'dummy-api-key') {
+      debugPrint('WARNING: Using dummy Firebase configuration. Authentication will not work.');
+    }
+  } catch (e) {
+    debugPrint('Firebase initialization failed: $e');
+    // If it's a "no-app" error or similar, we might want to know
+  }
 
   runApp(const MyApp());
 }
