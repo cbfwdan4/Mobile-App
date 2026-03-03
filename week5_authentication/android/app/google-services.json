@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "82275476229",
+    "project_id": "week5-9b3b3",
+    "storage_bucket": "week5-9b3b3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82275476229:android:d48d8bfcedf4e1354b4d6c",
+        "android_client_info": {
+          "package_name": "com.example.week5_authentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82275476229-tf1n5ch4lkv4j4v4asfdjk8rcj1kk426.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd8xkzLuibwUjrWI6gpTDQMPqqpMXJDVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82275476229-tf1n5ch4lkv4j4v4asfdjk8rcj1kk426.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "82275476229-hdgqt4m4hcksjejm09i6eodqvd89kn1r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.week5Authentication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

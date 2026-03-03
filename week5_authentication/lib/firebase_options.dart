@@ -28,29 +28,31 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'dummy-api-key',
-    appId: 'dummy-app-id',
-    messagingSenderId: 'dummy-sender-id',
-    projectId: 'dummy-project-id',
-    authDomain: 'dummy-auth-domain',
-    storageBucket: 'dummy-storage-bucket',
+    apiKey: 'AIzaSyAPiQ37DTT0FLxWeEavFwXjqBWJJQ8r1l8',
+    appId: '1:82275476229:web:be9dca2067a7def54b4d6c',
+    messagingSenderId: '82275476229',
+    projectId: 'week5-9b3b3',
+    authDomain: 'week5-9b3b3.firebaseapp.com',
+    storageBucket: 'week5-9b3b3.firebasestorage.app',
+    measurementId: 'G-TB8NLTQHWJ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'dummy-api-key',
-    appId: 'dummy-app-id',
-    messagingSenderId: 'dummy-sender-id',
-    projectId: 'dummy-project-id',
-    storageBucket: 'dummy-storage-bucket',
+    apiKey: 'AIzaSyDd8xkzLuibwUjrWI6gpTDQMPqqpMXJDVM',
+    appId: '1:82275476229:android:d48d8bfcedf4e1354b4d6c',
+    messagingSenderId: '82275476229',
+    projectId: 'week5-9b3b3',
+    storageBucket: 'week5-9b3b3.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'dummy-api-key',
-    appId: 'dummy-app-id',
-    messagingSenderId: 'dummy-sender-id',
-    projectId: 'dummy-project-id',
-    storageBucket: 'dummy-storage-bucket',
-    iosBundleId: 'dummy-bundle-id',
+    apiKey: 'AIzaSyB3iYqkWKjsfQdoyI5H_3JeyIMB2-a8gQI',
+    appId: '1:82275476229:ios:26fa367b0d7d1a834b4d6c',
+    messagingSenderId: '82275476229',
+    projectId: 'week5-9b3b3',
+    storageBucket: 'week5-9b3b3.firebasestorage.app',
+    iosClientId: '82275476229-hdgqt4m4hcksjejm09i6eodqvd89kn1r.apps.googleusercontent.com',
+    iosBundleId: 'com.example.week5Authentication',
   );
 
   static const FirebaseOptions macOS = FirebaseOptions(
