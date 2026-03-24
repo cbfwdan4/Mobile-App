@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/login_screen.dart';
+import 'theme/app_theme.dart';
 
 // Entry point of the application
 void main() async {
@@ -26,10 +27,7 @@ class StudentTaskApp extends StatelessWidget {
     return MaterialApp(
       title: 'Student Profile & Task Manager',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: AppTheme.darkTheme,
       // Start with the Login Screen
       home: const LoginScreen(),
     );
